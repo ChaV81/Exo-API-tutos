@@ -1,0 +1,17 @@
+<?php
+
+// Connexion à la base de donnée /////////////////////////////////////////
+
+define('HOST', 'localhost');
+define('DATABASE', 'bugmanager');   // Nom de la BDD
+define('LOGIN', 'root');            // Login sur la BDD
+define('MOT_DE_PASSE', '');         // Password sur la BDD
+
+// Chemin vers votre application ////////////////////////////////////////
+
+define('PATH', 'works/bugApp/');
+// Si votre application est dans ce dossier : 'C:\xampp\htdocs\works\bugApp\', le PATH est 'works/bugApp/'.
+// Pas de slash au début.
+// Un slash à la fin.
+
+?>
