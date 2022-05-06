@@ -30,14 +30,20 @@ class TutoManager extends Manager
         return $tuto;
     }
 
-    public function findAll()
+    public function findAll($num_page=0)
     {
 
         // Connexion à la BDD
         $dbh = static::connectDb();
-
+        $num_offset = (2 * $num_page)-2;
         // Requête
-        $sth = $dbh->prepare('SELECT * FROM tutos');
+        //Pagination de 2 en 2
+        if($num_page==0){
+            $sth = $dbh->prepare('SELECT * FROM tutos');
+        }else{
+            $sth = $dbh->prepare('SELECT * FROM tutos LIMIT 2 OFFSET :num_offset');
+            $sth->bindParam(':num_offset', $num_offset, \PDO::PARAM_INT);
+        }
         $sth->execute();
 
         $tutos = [];
